@@ -1,0 +1,29 @@
+
+{
+  "name": "main",
+  "children":
+  [
+    {
+      "name": "one",
+      "children": [
+        {
+          "name": "two"
+        },
+        {
+          "name": "three"
+        }
+      ]
+    },
+    {
+      "name": "four",
+      "children": [
+        {
+          "name": "five"
+        },
+        {
+          "name": "six"
+        }
+      ]
+    }
+  ]
+}

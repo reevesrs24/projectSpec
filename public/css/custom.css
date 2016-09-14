@@ -1,0 +1,62 @@
+
+
+
+.wireframe-img-web {
+    width: 23em;
+    height: 20em;
+    margin: 0 auto;
+    margin-bottom: 1em;
+}
+
+.wireframe-img-mobile {
+    width: 13em;
+    height: 20em;
+    margin: 0 auto;
+    margin-bottom: 1em;
+}
+
+
+.wireframe-left-button {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+.wireframe-right-button {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+.slider-div {
+    margin-top: 5em;
+    margin-left: 5%;
+}
+
+#wireframes-options {
+
+    margin-top: 1em;
+}
+
+.wireframe-title-web {
+    font-size: 2em;
+    text-align: center;
+}
+
+.wireframe-title-mobile {
+    font-size: 2em;
+    text-align: center;
+}
+
+.wireframe-btn {
+    margin-top: 2em;
+}
+
+.wireframe-highlight {
+    outline:5px solid #4452C0;
+
+}
+
+
