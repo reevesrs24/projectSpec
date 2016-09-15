@@ -121,7 +121,7 @@ renderTree();
 
 function showWireframeModal(image, type, id) {
 
-    console.log("TYPE " + id );
+    console.log("TYPE " + type );
     //set img title
     $("#myModalLabel").text(image);
 
@@ -132,6 +132,8 @@ function showWireframeModal(image, type, id) {
 
     //set img name to uuid
     $("#wireframe-img-modal").attr('name', id);
+
+    $("#wireframe-img-modal").removeClass();
 
     //set img class by type
     if (type == "web")
@@ -177,7 +179,7 @@ $("#delete-node").click(function(){
 //React.js script
 var settings = {
     dots: false,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3
@@ -212,7 +214,6 @@ var NextArrow = React.createClass({
 });
 
 var Wireframe = React.createClass ({
-
     updateTree: function() {
 
         var imgName = this.props.name.replace("_", " ").split(".")[0];
@@ -278,7 +279,9 @@ var Wireframe = React.createClass ({
     },
     highlight: function() {
 
-        var img = document.getElementById(this.props.name);
+        var img = document.getElementById(this.props.id);
+
+        console.log("IMG " + img);
 
         if ($(img).hasClass("wireframe-highlight")) {
             $(img).removeClass("wireframe-highlight");
@@ -291,12 +294,12 @@ var Wireframe = React.createClass ({
 
         if (this.props.type === "web") {
             return (
-                <div><img className="wireframe-img-web" onClick={this.highlight} id={this.props.name}
-                          onDoubleClick={this.updateTree} src={"wireframe_images/" + this.props.name}/></div>
+                <div><img className="wireframe-img-web" onClick={this.highlight} id={this.props.id}
+                          onDoubleClick={this.updateTree} src={"wireframe_images/" + this.props.name} /></div>
             );
         } else {
             return (
-                <div><img className="wireframe-img-mobile" onClick={this.highlight} id={this.props.name}
+                <div><img className="wireframe-img-mobile" onClick={this.highlight} id={this.props.id}
                           onDoubleClick={this.updateTree} src={"wireframe_images/" + this.props.name}/></div>
             );
         }
@@ -313,11 +316,13 @@ var ListWireframes = React.createClass ({
                 <Slider key={rand} className="slider-div"  {...settings} prevArrow={PrevArrow} nextArrow={NextArrow}>
 
                     {this.props.wireframes.map(function (item) {
-
+                        console.log("DATA " + item.id);
                         if (item.app_type === "web")
-                            return <div className="wireframe-img-div"><h1 className="wireframe-title-web">{item.name.replace("_", " ").split(".")[0]}</h1><Wireframe name={item.name} type={item.app_type}/> </div>
+                            return <div className="wireframe-img-div"><h1 className="wireframe-title-web">{item.name.replace("_", " ").split(".")[0]}</h1>
+                                <Wireframe name={item.name} type={item.app_type} id={item.id}/> </div>
                         else
-                            return <div className="wireframe-img-div"><h1 className="wireframe-title-mobile">{item.name.replace("_", " ").split(".")[0]}</h1><Wireframe name={item.name} type={item.app_type}/> </div>
+                            return <div className="wireframe-img-div"><h1 className="wireframe-title-mobile">{item.name.replace("_", " ").split(".")[0]}</h1>
+                                <Wireframe name={item.name} type={item.app_type} id={item.id} /> </div>
 
 
                     }, this)}
@@ -342,7 +347,7 @@ var SelectWireframeType = React.createClass ({
 
                 settings = {
                     dots: false,
-                    infinite: true,
+                    infinite: false,
                     speed: 500,
                     slidesToShow: 3,
                     slidesToScroll: 3

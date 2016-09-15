@@ -18,9 +18,9 @@ class WireframesController extends Controller {
             if ($request->app_type == "webAndMobile") {
 
                 $wireframes = DB::table('wireframes')->select('*')
-                    ->where('app_type', '=', 'web')
-                    ->orWhere('app_type', '=', 'mobile')
-                    ->get();
+                                                     ->where('app_type', '=', 'web')
+                                                     ->orWhere('app_type', '=', 'mobile')
+                                                     ->get();
                 return response()->json($wireframes);
             }
 
