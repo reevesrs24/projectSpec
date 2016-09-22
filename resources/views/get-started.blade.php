@@ -22,7 +22,7 @@
     <div class="container" style="text-align: center; margin-top: 2em">
         <h1>Get Started</h1>
         <div id="wireframe-tree" style="margin-top: 2em;">
-        </div>
+    </div>
 
     </div>
 

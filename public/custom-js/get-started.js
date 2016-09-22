@@ -21,11 +21,17 @@ function renderTree() {
 
     d3.select("svg").remove();
 
-    var canvas = d3.select("#wireframe-tree").append("svg")
+    var canvas = d3.select("#wireframe-tree")
+        .append("svg")
         .attr("width", 1000)
         .attr("height", 325)
+        .call(d3.behavior.zoom().on("zoom", function () {
+            canvas.attr("transform", "translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")")
+        }))
+        .on("dblclick.zoom", null)
         .append("g")
-        .attr("transform", "translate(100, 25)");
+        .attr("transform", "translate(10, 0)");
+
 
     var tree = d3.layout.tree()
         .size([300, 300]);
